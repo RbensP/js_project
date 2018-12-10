@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The red circle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript" src="script.js"></script>
+    <style>
+            #square{
+                height: 500px;
+                width: 500px;
+                background-color: blue;
+                position: absolute;
+                left: 400px;
+                top: 50px;
+            }
+            #circle{
+                height: 40px;
+                width: 40px;
+                background-color: red;
+                border-radius: 20px;
+                position: relative;
+                left: 0px;
+                top: 0;
+            }
+            #score{
+                position: relative;
+                top: 50px;
+                right: 200px; 
+            }
+    </style>
+</head>
+<body>
+    <div id="square"> <div id="circle" onclick = "augment_score()" > </div> </div>
+    <p id="score" align = "right"> Your score : 0 <script type="text/javascript" >
+        score = 0
+        i = 0
+        function augment_score()
+        {
+            if(i==0)
+            {
+                score +=5
+                O('score').innerHTML = 'Your score : '+score
+            }
+            i = 1
+        }
+    </script></p>
+    <script> 
+            d = 0
+            setInterval(display_circle,1000)
+            function display_circle()
+            {
+                if(d==0)
+                {
+                    S('circle').height = '40px'
+                    S('circle').width = '40px'
+                    S('circle').left = rand(0,460)+'px'
+                    S('circle').top = rand(0,460)+'px'
+                    ++d
+                    i = 0
+                }
+                else if(d==1)
+                {
+                    S('circle').height = '0px'
+                    S('circle').width = '0px'
+                    ++d
+                }
+                else
+                {
+                    d = 0
+                }
+            }
+          
+    </script>
+</body>
+</html>
